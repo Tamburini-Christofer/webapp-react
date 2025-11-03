@@ -1,22 +1,17 @@
-//? Importo Outlet
 import { Outlet } from "react-router-dom";
+import Header from "../components/Header";
 
-//? Importo componente Header
-import Header from "../components/Header"
-
-//todo Creazione componente Layout
-const layout = () => {
-    return(
+const Layout = () => {
+  return (
     <>
-        <header>
-            <Header />
-        </header>
-        <main>
-            <Outlet />
-        </main>
+      <header className="bg-dark text-white py-3 mb-4">
+        <Header />
+      </header>
+      <main className="container">
+        <Outlet />
+      </main>
     </>
-    )
-}
+  );
+};
 
-//! Export di Layout
-export default layout;
+export default Layout;

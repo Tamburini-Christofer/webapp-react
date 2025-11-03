@@ -1,28 +1,19 @@
-//? Importo librerie React (poer gestire le rotte)
-import { Route, Routes, BrowserRouter } from "react-router-dom";
-
-//? Importo app.css
-import "./App.css";
-
-//? Importo il layout
-import Layout from "./assets/layouts/layout";
-
-//? Importo pagine
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Layout from "./assets/layouts/Layout";
 import Home from "./assets/pages/Home";
-import DettaglioFilm from "./assets/pages/ReviewFilm";
+import ReviewFilm from "./assets/pages/ReviewFilm";
+import "./App.css";
 
 function App() {
   return (
-    <>
-      <BrowserRouter>
-        <Routes>
-          <Route element={<Layout />}>
-            <Route index element={<Home />} />
-            <Route path='/movie/:id' element={<DettaglioFilm />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="/movie/:id" element={<ReviewFilm />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
