@@ -9,7 +9,7 @@ import Layout from "./assets/layouts/layout";
 
 //? Importo pagine
 import Home from "./assets/pages/Home";
-import DettaglioFilm from "./assets/pages/DettaglioFilm";
+import DettaglioFilm from "./assets/pages/ReviewFilm";
 
 function App() {
   return (

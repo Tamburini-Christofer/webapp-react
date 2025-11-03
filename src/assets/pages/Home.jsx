@@ -1,5 +1,5 @@
 //? Importo componente DettaglioFilm
-import DettaglioFilm from "./DettaglioFilm"
+import ReviewFilm from "./ReviewFilm"
 
 //? Creo componente Home
 const Home = () => {
@@ -8,11 +8,7 @@ const Home = () => {
             <h1>PopCornVote</h1>
             <h2>Il gusto del cinema, un voto alla volta.</h2>
             <div>
-                <DettaglioFilm />
-                <DettaglioFilm />
-                <DettaglioFilm />
-                <DettaglioFilm />
-                <DettaglioFilm />
+             
             </div>
         
         </>
