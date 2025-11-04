@@ -1,19 +1,15 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Layout from "./assets/layouts/Layout";
+import { Routes, Route } from "react-router-dom";
 import Home from "./assets/pages/Home";
-import ReviewFilm from "./assets/pages/ReviewFilm";
-import "./App.css";
+import MovieShow from "./assets/pages/MovieShow";
+import NotFound from "./assets/pages/NotFound";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="/movie/:id" element={<ReviewFilm />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/movies/:id" element={<MovieShow />} />
+      <Route path="*" element={<NotFound />} />
+    </Routes>
   );
 }
 

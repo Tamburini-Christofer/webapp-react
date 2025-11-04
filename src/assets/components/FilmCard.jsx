@@ -1,23 +1,22 @@
 import { Link } from "react-router-dom";
 
-const FilmCard = () => {
+const FilmCard = ({ filmProp }) => {
+
+  const { id, title, director, description, image } = filmProp;
+
   return (
     <div className="col-md-4 mb-4">
       <div className="card h-100 shadow-sm">
-        <img
-          src=""
-          className="card-img-top"
-          alt="Titolo film"
-        />
+        <img src={image} alt={title} className="card-img-top" />
         <div className="card-body">
-          <h5 className="card-title">Titolo film</h5>
+          <h5 className="card-title">{title}</h5>
           <p className="card-text text-muted">
-            <i>Regista</i>
+            <i>{director}</i>
           </p>
           <p className="card-text">
-            Breve descrizione del film in questa sezione. 
+            {description}
           </p>
-          <Link to="/movie/1" className="btn btn-primary">
+          <Link to={`/movies/${id}`} className="btn btn-primary">
             Vedi dettagli
           </Link>
         </div>
