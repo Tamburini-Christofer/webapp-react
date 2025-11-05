@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
-import "./ReviewForm.css";
+import { Link } from "react-router-dom";
+import "../css/ReviewForm.css";
 
 const ReviewForm = ({ movieId, onReviewAdded }) => {
   const [formData, setFormData] = useState({
@@ -32,7 +33,6 @@ const ReviewForm = ({ movieId, onReviewAdded }) => {
         formData
       );
 
-      // Reset form
       setFormData({
         name: "",
         vote: "3",
@@ -41,12 +41,10 @@ const ReviewForm = ({ movieId, onReviewAdded }) => {
 
       setSuccess(true);
 
-      // Chiama la callback per aggiornare la lista delle recensioni
       if (onReviewAdded) {
         onReviewAdded(response.data);
       }
 
-      // Nasconde il messaggio di successo dopo 3 secondi
       setTimeout(() => setSuccess(false), 3000);
     } catch (err) {
       setError(
@@ -58,11 +56,11 @@ const ReviewForm = ({ movieId, onReviewAdded }) => {
   };
 
   return (
-    <div className="card shadow-sm mt-5 mb-4">
-      <div className="card-header bg-primary text-white">
-        <h4 className="mb-0">Lascia una recensione</h4>
+    <div className="review-form-card">
+      <div className="review-form-header">
+        <h4>Lascia una recensione</h4>
       </div>
-      <div className="card-body">
+      <div className="review-form-body">
         {success && (
           <div className="alert alert-success" role="alert">
             ✓ Recensione inviata con successo!
@@ -133,7 +131,7 @@ const ReviewForm = ({ movieId, onReviewAdded }) => {
 
           <button
             type="submit"
-            className="btn btn-primary"
+            className="btn-review-form-submit"
             disabled={isSubmitting}
           >
             {isSubmitting ? (
@@ -150,6 +148,9 @@ const ReviewForm = ({ movieId, onReviewAdded }) => {
             )}
           </button>
         </form>
+        <Link to="/" className="btn-home-review">
+          Torna alla Home
+        </Link>
       </div>
     </div>
   );

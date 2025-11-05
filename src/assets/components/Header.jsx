@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
+import "../css/Header.css";
 
 const Header = () => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav className="header-cinema">
       <div className="container">
-        <Link className="navbar-brand fw-bold" to="/">
+        <Link className="navbar-brand" to="/">
           PopCornVote
         </Link>
       </div>

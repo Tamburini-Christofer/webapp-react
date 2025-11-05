@@ -1,0 +1,27 @@
+/* Modalità notturna - sfondo scuro */
+body {
+  background-color: #1a1a1a;
+  color: #e0e0e0;
+  min-height: 100vh;
+}
+
+/* Container con sfondo scuro */
+
+.container {
+  background-color: transparent;
+  width: 80%;
+  margin: 0 auto;
+}
+
+/* Miglioramento testi su sfondo scuro */
+h1, h2, h3, h4, h5, h6 {
+  color: #f5f5f5;
+}
+
+p {
+  color: #d0d0d0;
+}
+
+.text-muted {
+  color: #999 !important;
+}

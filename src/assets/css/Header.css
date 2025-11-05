@@ -1,0 +1,46 @@
+.header-cinema {
+  width: 100%;
+  background: linear-gradient(90deg, #1a1a1a 0%, #232526 100%);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.5);
+  border-bottom: 3px solid #d4af37;
+  padding: 1.5rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-cinema .container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-cinema .navbar-brand {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #d4af37;
+  letter-spacing: 2px;
+  text-shadow: 0 0 20px #d4af37, 0 0 40px #232526;
+  transition: color 0.3s, text-shadow 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.header-cinema .navbar-brand::before {
+  content: '🎬';
+  font-size: 2.2rem;
+  margin-right: 0.5rem;
+  animation: flicker 2s infinite alternate;
+}
+
+@keyframes flicker {
+  0% { opacity: 1; }
+  50% { opacity: 0.7; }
+  100% { opacity: 1; }
+}
+
+.header-cinema .navbar-brand:hover {
+  color: #fffbe6;
+  text-shadow: 0 0 40px #d4af37, 0 0 80px #232526;
+}
