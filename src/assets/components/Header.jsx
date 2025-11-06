@@ -8,6 +8,9 @@ const Header = () => {
         <Link className="navbar-brand" to="/">
           PopCornVote
         </Link>
+        <Link className="add-movie-link" to="/add-movie">
+          + Aggiungi Film
+        </Link>
       </div>
     </nav>
   );

@@ -1,18 +1,27 @@
 import FilmCard from "../components/FilmCard";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { useLoader } from "../../contexts/LoaderContext";
 
 const Home = () => {
   const [movies, setMovies] = useState([]);
+  const { showLoader, hideLoader } = useLoader();
 
   const fetchMovies = () => {
+    showLoader();
     axios
       .get("http://localhost:3000/api/movie")
-      .then((res) => setMovies(res.data))
-      .catch((err) => console.error(err));
+      .then((res) => {
+        setMovies(res.data);
+        hideLoader();
+      })
+      .catch((err) => {
+        console.error(err);
+        hideLoader();
+      });
   };
 
-  useEffect(fetchMovies, []);
+  useEffect(fetchMovies, [showLoader, hideLoader]);
 
   return (
     <div className="text-center">

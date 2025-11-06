@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { useLoader } from "../../contexts/LoaderContext";
 import FilmCard from "../components/FilmCard";
 import ReviewFilm from "./ReviewFilm";
 import ReviewForm from "../components/ReviewForm";
@@ -10,13 +11,21 @@ const MovieShow = () => {
   const { id } = useParams();
   const [movie, setMovie] = useState(null);
   const [showDetails, setShowDetails] = useState(false);
+  const { showLoader, hideLoader } = useLoader();
 
   useEffect(() => {
+    showLoader();
     axios
       .get(`http://localhost:3000/api/movie/${id}`)
-      .then((res) => setMovie(res.data))
-      .catch((err) => console.error(err));
-  }, [id]);
+      .then((res) => {
+        setMovie(res.data);
+        hideLoader();
+      })
+      .catch((err) => {
+        console.error(err);
+        hideLoader();
+      });
+  }, [id, showLoader, hideLoader]);
 
   const handleReviewAdded = (newReview) => {
     setMovie((prevMovie) => ({

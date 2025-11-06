@@ -12,7 +12,7 @@
 .header-cinema .container {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 .header-cinema .navbar-brand {
@@ -43,4 +43,22 @@
 .header-cinema .navbar-brand:hover {
   color: #fffbe6;
   text-shadow: 0 0 40px #d4af37, 0 0 80px #232526;
+}
+
+.add-movie-link {
+  background: linear-gradient(90deg, #d4af37 0%, #fffbe6 100%);
+  color: #232526;
+  font-weight: 700;
+  padding: 0.7rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s;
+  box-shadow: 0 2px 8px rgba(212,175,55,0.12);
+}
+
+.add-movie-link:hover {
+  background: linear-gradient(90deg, #fffbe6 0%, #d4af37 100%);
+  color: #1a1a1a;
+  box-shadow: 0 4px 16px rgba(212,175,55,0.22);
+  transform: translateY(-2px);
 }
