@@ -7,7 +7,7 @@ const Home = () => {
   const [movies, setMovies] = useState([]);
   const { showLoader, hideLoader } = useLoader();
 
-  const fetchMovies = () => {
+  useEffect(() => {
     showLoader();
     axios
       .get("http://localhost:3000/api/movie")
@@ -19,9 +19,7 @@ const Home = () => {
         console.error(err);
         hideLoader();
       });
-  };
-
-  useEffect(fetchMovies, [showLoader, hideLoader]);
+  }, [showLoader, hideLoader]);
 
   return (
     <div className="text-center">

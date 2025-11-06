@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useCallback } from "react";
 
 const LoaderContext = createContext();
 
@@ -13,8 +13,8 @@ export const useLoader = () => {
 export const LoaderProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false);
 
-  const showLoader = () => setIsLoading(true);
-  const hideLoader = () => setIsLoading(false);
+  const showLoader = useCallback(() => setIsLoading(true), []);
+  const hideLoader = useCallback(() => setIsLoading(false), []);
 
   return (
     <LoaderContext.Provider value={{ isLoading, showLoader, hideLoader }}>
